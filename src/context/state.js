@@ -1,6 +1,7 @@
 import { createContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { v4 as uuidv4 } from "uuid";
+import collect from "collect.js";
 
 export const StateContext = createContext();
 
@@ -37,20 +38,15 @@ export default function State({ children }) {
     setShowModal(false);
   };
 
-  function calculateTotal(expenses) {
-    const newSum = expenses;
-    let sum = 0;
+  const calculateTotal = () => {
+    const allExpenses = expenses.map((expense) => expense.amount);
 
-    for (let i = 0; i < newSum.length; i += 1) {
-      sum += newSum[i];
-    }
-
-    setTotal(sum);
-  }
+    setTotal(collect(allExpenses).sum());
+  };
 
   useEffect(() => {
     calculateTotal();
-  }, [expenses]);
+  });
 
   const context = {
     expense,
