@@ -11,6 +11,8 @@ export default function State({ children }) {
   const [expenses, setExpenses] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [total, setTotal] = useState(0);
+  const [budget, setBudget] = useState();
+  const [budgetItems, setBudgetItems] = useState([]);
 
   const handleSubmitExpense = (e) => {
     e.preventDefault();
@@ -48,6 +50,21 @@ export default function State({ children }) {
     calculateTotal();
   });
 
+  const handleSubmitBudget = (e) => {
+    e.preventDefault();
+
+    if (!budget) {
+      toast.error("You need to add your budget before submitting");
+    } else {
+      const newBudget = {
+        id: uuidv4(),
+        budget,
+      };
+      setBudgetItems([newBudget]);
+      setBudget();
+    }
+  };
+
   const context = {
     expense,
     setExpense,
@@ -59,6 +76,10 @@ export default function State({ children }) {
     showModal,
     setShowModal,
     total,
+    handleSubmitBudget,
+    budget,
+    setBudget,
+    budgetItems,
   };
 
   return (
