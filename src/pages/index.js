@@ -4,7 +4,6 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Expenses from "@/components/expenses";
 import Head from "next/head";
-import Sidebar from "@/components/sidebar";
 
 export default function App() {
   const { expense, setExpense, amount, setAmount, handleSubmitExpense } =
@@ -67,11 +66,7 @@ export default function App() {
                 Add Expense
               </button>
 
-              <ToastContainer
-                theme="colored"
-                hideProgressBar={true}
-                autoClose={3000}
-              />
+              <ToastContainer theme="colored" autoClose={3000} />
             </form>
           </div>
 
