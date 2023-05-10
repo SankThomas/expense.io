@@ -7,7 +7,6 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  color: #333;
 }
 
 body {
@@ -31,6 +30,7 @@ h4,
 h5,
 h6 {
   @apply font-bold;
+  color: #333;
 }
 
 h1 {
