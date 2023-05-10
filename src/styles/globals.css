@@ -3,25 +3,15 @@
 @tailwind base;
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  color: #333;
 }
 
 body {
-  background-color: #f1f1f1;
-}
-
-main {
-  padding: 1rem;
-  max-width: 500px;
-  margin: auto;
+  @apply bg-[#f1f1f1f1];
 }
 
 ul {
-  list-style-type: none;
+  @apply list-none;
 }
 
 h1,
@@ -30,7 +20,7 @@ h3,
 h4,
 h5,
 h6 {
-  @apply font-bold;
+  @apply font-bold text-[#333333];
 }
 
 h1 {
@@ -62,101 +52,58 @@ li,
 a,
 label,
 input {
+  @apply text-[#444444];
   line-height: 1.8;
-  color: #444;
 }
 
 form {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+  @apply flex flex-col gap-4;
 }
 
 label {
-  display: block;
-  text-transform: capitalize;
-  cursor: pointer;
-  font-size: 1.25rem;
+  @apply block capitalize cursor-pointer text-lg;
 }
 
 input {
-  color: #555;
-  padding: 0.2rem 0.5rem;
-  font-size: 1.25rem;
-  width: 100%;
-  border: none;
-  border-radius: 0.2rem;
-  outline: none;
-  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
-  text-transform: capitalize;
+  @apply focus:bg-blue-100 capitalize shadow outline-none rounded border-none w-full text-lg py-2 px-4 text-[#333333];
 }
 
 input::placeholder {
-  color: #888;
+  @apply text-[#888888];
 }
 
 button {
-  background-color: transparent;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  @apply active:scale-95;
+  @apply bg-transparent border-none outline-none cursor-pointer active:scale-95;
 }
 
 button.btn-primary {
-  background-color: #000;
-  color: #fff;
-  font-size: 1.25rem;
-  padding: 0.5rem 1rem;
-  border-radius: 0.2rem;
-  transition: all 0.1s ease-in-out;
+  @apply bg-black text-white text-lg p-2 px-4 rounded transition-all duration-150;
 }
 
 button:hover {
-  opacity: 0.75;
+  @apply opacity-75;
 }
 
 .expenses li {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.5rem;
-  border-bottom: 1px solid #999;
-  text-transform: capitalize;
+  @apply flex items-center justify-between p-2 border-b border-[#999999] capitalize;
 }
 
 .expenses > li:first-child {
-  border-top: 1px solid #999;
+  @apply border-t border-[#999999];
 }
 
 .expenses > li:nth-child(odd) {
-  background-color: #e6e6e6;
+  @apply bg-[#e6e6e6];
 }
 
 .delete-icon {
-  cursor: pointer;
-  font-size: 1rem;
+  @apply cursor-pointer text-base;
 }
 
 .modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 99;
+  @apply fixed top-0 left-0 right-0 bottom-0 bg-black bg-opacity-50 z-[99];
 }
 
 .modal div {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 90%;
-  background-color: #fff;
-  padding: 1rem;
-  border-radius: 0.2rem;
-  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
-  max-width: 500px;
+  @apply absolute bg-white top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] p-4 rounded shadow max-w-[500px];
 }
